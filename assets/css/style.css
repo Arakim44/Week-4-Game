@@ -1,0 +1,38 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-image: url("../images/backgound2.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: black;
+  font-family: 'Press Start 2P',cursive;
+  color: white;
+  font-weight: lighter;
+}
+
+ul{
+  float: right;
+  list-style-type: none;
+  text-align: right;
+  padding: 14px;
+}
+
+#time{
+  font-size: 150%;
+}
+
+#masthead{
+  margin: 0 0 0px;
+  overflow: auto;
+  width: 100%;
+}
+
+.container{
+  width: 100%;
+  max-width: ;
+  clear: both;
+  margin: 0 auto;
+}
