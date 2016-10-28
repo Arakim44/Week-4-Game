@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<style type="text/css">
+
+.characters {
+    height: 100px;
+    width: 150px;
+    margin-left: 20px;
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    border: 3px solid white;
+}
+.characters:hover{
+  border-color: #00d8ff;
+  color: #00d8ff;
+}
+#character1 {
+    background-color: blue;
+}
+
+#character2 {
+    background-color: grey;
+}
+
+#character3 {
+    background-color: green;
+}
+
+#character4 {
+    background-color: red;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+<div class="availCharacters">
+    <button id="StartGame">Start Game</button>
+    <div class="row1">
+        <div class="col1" id="characterList">
+
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+
+
+function Character(name="default", hp=100, ap=25) {
+    this.name = name;
+    this.healthPoints = hp;
+    this.attackPoints = ap;
+};
+
+//This function does
+function setGame(){
+  var players = [];
+  ["yoda", "luke", "that guy", "akbar"].forEach(function(itm){
+      players.push(new Character(itm));
+  });
+  var rootElement = document.getElementById("characterList");
+
+  //GameThing is an Object, setting the functions and properties and values. Not sure what is going to happen here yet.
+  var GameThing = {
+      playerSelected: null,
+      enemySelected: null,
+      players: players, //This is array of players you set up in line 74
+
+    //here is the function in the object. runs when character clicked.
+      whenClicked: function(e){
+        //This prints out the object of this function?**
+        console.log("event object",e);
+        //This pickes the index of what we click on the picture?
+        //Yes by choosing the properties of e(target) which is an object and choosing target's properties(dataset) and index is value of dataset.
+        var index = e.target.dataset.index;
+        //Index shows the position of the array.
+        console.log("element index", index);
+        var playerClicked = GameThing.players[index];
+        console.log("this.players[index]", playerClicked );
+
+      },
+
+//This select your character, which is chosen first.
+      selectPlayer: function(index){
+        GameThing.playerSelected = GameThing.players[index];
+        console.log(GameThing.playerSelected);
+      },
+//This select your character which is chosen second.
+      selectEnemy: function(index) {
+        GameThing.playerSelected = GameThing.players[index];
+        console.log(GameThing.playerSelected);
+      },
+//
+      setHTML: function(){
+         rootElement.innerHTML = "";
+         var self = this;
+         GameThing.players.forEach(function(player, index){
+            var p = document.createElement("div");
+            p.id = 'character' + (index + 1); //div id = character1.
+            p.className = "characters";
+            p.setAttribute("data-index", index);
+            // player.domElement = p;
+            p.innerHTML =
+            '<strong data-index="'+index+ '"" >' + player.name+'</strong>';
+            rootElement.appendChild(p);
+            p.addEventListener("click", GameThing.whenClicked );
+            var sayPlayer = "player index: " + index;
+            console.log(sayPlayer, player);
+         });
+
+      }
+
+  }
+  return GameThing;//what does return do again?
+}
+
+document.getElementById("StartGame").onclick = function(){
+  var gameThing = setGame();
+  console.log(gameThing)
+  gameThing.setHTML();
+  console.log(gameThing);
+}
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -5,63 +5,53 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Cormorant+Garamond|Gloria+Hallelujah|Homemade+Apple|Indie+Flower|Orbitron|Press+Start+2P|Raleway:100|Rock+Salt|Slabo+27px" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <title>FNAF RPG!</title>
   </head>
 
-  <body>
-    <header id="masthead">
-      <div class="container">
-        <h3 class="col-sm-8">Err, hello! Hello? Uh..<br> Welcome to the Freddy Fezbear RPG</h3>
-        <ul id="some" class="col-sm-4">
-          <li id="time">12 AM</li>
-          <li id="day">Night 1</li>
-        </ul>
-      </div>
-    </header>
+<body>
+  <header id="masthead">
+    <div class="container">
+      <h3 class="col-sm-8">Err, hello! Hello? Uh..<br> Welcome to the Freddy Fezbear RPG</h3>
+      <ul id="some" class="col-sm-4">
+        <li id="time">12 AM</li>
+        <li id="day">Night 1</li>
+      </ul>
+    </div>
+  </header>
 
-    <div class="container" id="main-container col-sm-8">
-        <section id="characters" class="row">
-          <div class="img col-sm-2">
-            <img id="bonnie" src="assets/images/bonnieFix.jpg" alt="Bonnie" />
-            <h3>Bonnie<br>hp:120</h3>
-          </div>
-          <div class="img col-sm-2">
-            <img id="chica" src="assets/images/Chica2.jpg" alt="Chica" />
-            <h3>Chica<br>hp:100</h3>
-          </div>
-          <div class="img col-sm-2">
-            <img id="foxy" src="assets/images/foxy.png" alt="Foxy" />
-            <h3>Foxy<br>hp:150</h3>
-          </div>
-          <div class="img col-sm-2">
-            <img id="freddy" src="assets/images/nightmare.png" alt="Freddy" />
-            <h3>Nightmare Freddy<br>hp:180</h3>
-          </div>
+  <div class="container" id="main-container col-sm-8">
 
-        </section>
 
-        <section id="youCha">
-          <p>Your Character</p>
+    <div class="availCharacters">
+      <button class="btn-success" id="startGame" type="button" name="button">Start Game</button>
+      <div class="row1">
+        <div class="col1" id="characterList"> </div>
+       </div>
+    </div>
 
-        </section>
+    <div id="yourCharacter"class="">
+        <!-- <p>Your Character</p> -->
 
-        <section id="enemy">
-          <p>Animatronics available to attack</p>
-
-        </section>
-
-        <section id="fight">
-          <p>Fight Section</p>
-          <button class="btn-danger" type="button" name="button">attack</button>
-        </section>
-        <section id="defender">
-
-        </section>
-
+    </div>
+    <div id="enemy"class="">
+        <!-- <p>Animatronics available to attack</p> -->
     </div>
 
 
+      <!-- <section id="fight">
+        <p>Fight Section</p>
+        <button class="btn-danger" type="button" name="button">attack</button>
+      </section>
+      <section id="defender">
+
+      </section> -->
+
+  </div>
 
 
 
@@ -70,7 +60,9 @@
 
 
 
-  <script type="text/javascript" src ="assets/javascript/game.js"></script>
-  </body>
-  </body>
+
+
+<script type="text/javascript" src ="assets/javascript/game.js"></script>
+</body>
+</body>
 </html>
