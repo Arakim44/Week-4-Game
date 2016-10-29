@@ -36,29 +36,75 @@ function setGame(){
         playerSelected: null, //what does this do by setting it null again?
         enemySelected: null,
         players: players, //array above in line 24 i think. but just names..
-
+        div: [],
         //method that happens when clicked.
+
       whenClicked: function(e){
           //This extracts the index number of Character number.
           //which is position of the array.
-
           var index = e.target.dataset.index;
           console.log(e);
           console.log("element index",index);
           var playerClicked = GameThing.players[index];
           console.log("this.players[index]",playerClicked);
-        },//when clicked. Not done yet I think.
+
+          GameThing.playerSelected = playerClicked;
+          console.log("you picked",GameThing.playerSelected);
+          $('#select1').html("Your Character");
+          $('#enemyAvail').html("Animatronic Available to attack!!")
+
+          if(index == 0){
+            GameThing.div[0].className="yours";
+            GameThing.div[1].className="enemyAvail";
+            GameThing.div[2].className="enemyAvail";
+            GameThing.div[3].className="enemyAvail";
+            $('#enemy').append(GameThing.div[1]);
+            $('#enemy').append(GameThing.div[2]);
+            $('#enemy').append(GameThing.div[3]);
+
+          }
+          if(index == 1){
+            GameThing.div[1].className="yours";
+            GameThing.div[0].className="enemyAvail";
+            GameThing.div[2].className="enemyAvail";
+            GameThing.div[3].className="enemyAvail";
+            $('#enemy').append(GameThing.div[0]);
+            $('#enemy').append(GameThing.div[2]);
+            $('#enemy').append(GameThing.div[3]);
+
+          }
+          if(index == 2){
+            GameThing.div[2].className="yours";
+            GameThing.div[0].className="enemyAvail";
+            GameThing.div[1].className="enemyAvail";
+            GameThing.div[3].className="enemyAvail";
+            $('#enemy').append(GameThing.div[1]);
+            $('#enemy').append(GameThing.div[3]);
+            $('#enemy').append(GameThing.div[0]);
+          }
+          if(index == 3){
+            GameThing.div[3].className="yours";
+            GameThing.div[0].className="enemyAvail";
+            GameThing.div[1].className="enemyAvail";
+            GameThing.div[2].className="enemyAvail";
+            $('#enemy').append(GameThing.div[1]);
+            $('#enemy').append(GameThing.div[2]);
+            $('#enemy').append(GameThing.div[0]);
+          }
+
+
+        },
 
 
        //not done writing i don't think. It might come in later.
-       //Not sure the purpose yet.
-       //Must been clicked first right?
-      selectPlayer: function(index){
-          GameThing.playerSelected = Gamething.players[index];
-          //hopfully playerSelected has all the properties like hp and stuff.
-          p.addEventListener("click",GameThing.whenClicked);
 
-        },
+       //Must been clicked first right?
+      //  selectPlayer: function(index){
+      //     GameThing.playerSelected = Gamething.players[index];
+      //     //hopfully playerSelected has all the properties like hp and stuff.
+      //
+       //
+      //   },
 
       //This select your enemy shich is chosen second.
 
@@ -83,9 +129,13 @@ function setGame(){
           rootElement.appendChild(p);//all of the p are adding to the div.
           //well.. the reason why he used addEventListener is that.. maybe click method only works on ids or class?
           //whenClicked:
+          GameThing.div.push(p);
           p.addEventListener("click",GameThing.whenClicked);
-          var sayPlayer = "player index: "+index;
-          console.log(sayPlayer, player);
+
+          console.log("div",GameThing.div);
+
+          // var sayPlayer = "player index: "+index;
+          // console.log(sayPlayer, player);
         });
 
       }
@@ -100,8 +150,10 @@ $('#startGame').click(function(){
   var gameThing = setGame();
   gameThing.setHTML();
   $('#startGame').hide();
-  // $('#')
+  $('#select1').html("Select Your Character!");
 })
+
+
 
 
 
