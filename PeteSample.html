@@ -76,6 +76,7 @@ function setGame(){
   ["yoda", "luke", "that guy", "akbar"].forEach(function(itm){
       players.push(new Character(itm));
   });
+  console.log("HEUY"+players+"YOOO");
   var rootElement = document.getElementById("characterList");
 
   //GameThing is an Object, setting the functions and properties and values. Not sure what is going to happen here yet.
@@ -129,7 +130,7 @@ function setGame(){
       }
 
   }
-  return GameThing;//what does return do again?
+  //return GameThing;//what does return do again?
 }
 
 document.getElementById("StartGame").onclick = function(){

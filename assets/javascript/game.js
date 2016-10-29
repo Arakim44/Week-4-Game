@@ -6,26 +6,27 @@ $(document).ready(function(){
 //Is there a way to push the each characters object and push it in to
 //what is the point of making huge object like setGame?
 
-function character(name="default",hp=100,ap=8,cp=20){
-  this.name = name;
-  this.healthPoints=hp;
-  this.attackPoints=ap;
-  this.counterAttack=cp;
-};
+function character(name="default",hp,ap,cp,img) {
+  return {
+    name: name,
+    healthPoints: hp,
+    attackPoints: ap,
+    counterAttack: cp,
+    img: img,
+  }
 
-// var Chica =  Character("Chica",100,8,10);
-// var Bonnie= Character("Bonnie",120,8,20);
-// var Foxy = Character("Foxy",130,10,25);
-// var Freddy = Character("Freddy",180,12,30);
+};
 
 function setGame(){
       //This sets the name of the Characters, but nothing else!
       //how do I also set the above values?
       //and also, can I add img into this?
       var players = [];
-      ["Chica","Bonnie","Foxy","Freddy"].forEach(function(itm){
-        players.push(new character(itm));
+      [character("Chica",100,8,10,'<img  src="assets/images/Chica2.jpg" alt="Chica" />'),character("Bonnie",120,8,20,'<img src="assets/images/bonnieFix.jpg" alt="Bonnie" />'),character("Foxy",130,10,25,'<img src="assets/images/foxy.png" alt="Foxy" />'),character("Freddy",180,12,30,'<img src="assets/images/nightmare.png" alt="Freddy" />')].forEach(function(itm){
+        players.push(itm);
       });
+      console.log(players);
+
 
       //This comes in later.. to Put names and such.
       //So This can also maybe write in hp,cp and such.
@@ -65,14 +66,17 @@ function setGame(){
 
       //Not sure what setHTML do, but I think It will show on html page
       setHTML: function(){
-        rootElement.innerHTML = "";//why do you leave it blank?
+        // rootElement.innerHTML = "";//why do you leave it blank?
         var self=this;
+        //second parameter of the forEach function calls index.
         GameThing.players.forEach(function(player,index){
           var p =document.createElement("div");
           p.id = 'character'+(index+1); //this is id of div for character#
           p.className = "characters";
           p.setAttribute("data-index",index);
           p.innerHTML =  '<strong data-index="'+index+ '"" >' + player.name+'</strong>';
+          p.innerHTML += player.img;
+
           rootElement.appendChild(p);//all of the p are adding to the div.
           //well.. the reason why he used addEventListener is that.. maybe click method only works on ids or class?
           //whenClicked:
@@ -94,6 +98,26 @@ $('#startGame').click(function(){
   gameThing.setHTML();
   $('#startGame').hide();
 })
+
+
+///Lucas's example.
+  // gameThing.players.forEach(function(item) {
+  //   console.log("in foreach " + item);
+  // });
+  //
+  // for (var i = 0; i < gameThing.players.length; i++) {
+  //   console.log("in for loop " + gameThing.players[i])
+  // }
+  //
+  // var myForeach = function(sunny, blargh) {
+  //   for (var i = 0; i < sunny.length; i++) {
+  //     blargh(sunny[i], i);
+  //   }
+  // }
+  // myForeach(gameThing.players, function(item, andie) {
+  //   console.log("in function " + item + ", index is " );
+  // });
+
 
 
 //so this is possible function for the attack?

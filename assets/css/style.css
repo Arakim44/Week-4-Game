@@ -51,13 +51,18 @@ ul{
     width: 150px;
     margin-left: 20px;
     text-align: center;
-    padding: 10px;
+    /*padding: 10px;*/
     display: inline-block;
     overflow: hidden;
     cursor: pointer;
     color: white;
     border: 3px solid white;
 }
+
+.characters img{
+  width:160px;
+}
+
 .characters:hover{
   border-color: #00d8ff;
   color: #00d8ff;
@@ -66,24 +71,24 @@ ul{
 
 
 #character1 {
-    background-color: yellow;
-    background-image: url("../images/Chica2.jpg");
+    background-color: #969c08;
+    /*background-image: url("../images/Chica2.jpg");*/
 
 }
 
 #character2 {
-    background-color: purple;
-    background-image: url("../images/");
+    background-color: #5515dd;
+
 }
 
 #character3 {
     background-color: brown;
-    /*background-image: url("../images/foxy.png");*/
+
 }
 
 #character4 {
-    background-color: gold;
-    background-image: url("../images/nightmare.png");
+    background-color: #cf990e;
+
 }
 
 /*
