@@ -54,8 +54,8 @@ function setGame(){
           GameThing.meDiv = GameThing.div[index];
           GameThing.meDiv.onclick = null;
           console.log("you picked",GameThing.playerSelected);
-          $('#select1').hide();
-          $('#youSelect').html("Your Character");
+          $('#select1').empty ();
+          $('#youSelect').show();
           $('#enemyAvail').html("Animatronics Available to attack!!")
         // alert('whenclicked');
           for(var i = 0; i < GameThing.div.length; i++){
@@ -118,13 +118,16 @@ function setGame(){
           $('#characterList').empty();
           $('#enemyAvail').empty();
           $('#enemy').empty();
+          $('#youSelect').hide();
 
         }else if(you.healthPoints <= 0 ){
           alert('you win! choose other character');
+          // $('#reset').show();
           $('#fight').empty();
           $('#damage').empty();
           $('#defender').empty();
           $('#attack').hide();
+          // $('#enemyAvail').empty();
         }
 
 
@@ -169,15 +172,20 @@ $('#startGame').click(function(){
   var gameThing = setGame();
   gameThing.setHTML();
   $('#startGame').hide();
-  $('#select1').html("Select Your Character!");
+  $('#select1').show( );
 
-  $('#attack').click(gameThing.attack);
+  document.getElementById('attack').onclick = gameThing.attack;
+
 })
 
 $('#reset').click(function(){
   var gameThing = setGame();
   gameThing.setHTML();
   $('#reset').hide();
+  $('#attack').onclick=gameThing.attack;
+  document.getElementById('attack').onclick = gameThing.attack;
+  $('#select1').show();
+  $('#youSelect').show();
 })
 
 
