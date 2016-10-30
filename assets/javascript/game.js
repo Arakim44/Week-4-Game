@@ -50,7 +50,8 @@ function setGame(){
 
           GameThing.playerSelected = playerClicked;
           console.log("you picked",GameThing.playerSelected);
-          $('#select1').html("Your Character");
+          $('#select1').hide();
+          $('#youSelect').html("Your Character");
           $('#enemyAvail').html("Animatronics Available to attack!!")
 
           if(index == 0){

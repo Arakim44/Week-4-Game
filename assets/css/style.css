@@ -41,8 +41,8 @@ ul{
 }
 
 .characters {
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     margin-left: 20px;
     text-align: center;
     display: inline-block;
@@ -53,8 +53,8 @@ ul{
 }
 .yours {
   border: 3px solid green;
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
   margin-left: 20px;
   text-align: center;
   /*padding: 10px;*/
@@ -64,13 +64,13 @@ ul{
   color: green;
 }
 .yours img{
-  width: 160px;
+  width: 130px;
 }
 
 .enemyAvail{
   border: 3px solid red;
-  height: 150px;
-  width: 150px;
+  height: 130px;
+  width: 130px;
   margin-left: 20px;
   text-align: center;
   /*padding: 10px;*/
@@ -81,12 +81,12 @@ ul{
 }
 
 .enemyAvail img{
-  width: 160px;
+  width: 130px;
 }
 
 
 .characters img{
-  width:160px;
+  width:130px;
 }
 
 .characters:hover{
