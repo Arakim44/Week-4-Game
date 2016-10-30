@@ -22,7 +22,7 @@ function setGame(){
       //how do I also set the above values?
       //and also, can I add img into this?
       var players = [];
-      [character("Chica",100,8,10,"assets/images/Chica2.jpg"),character("Bonnie",120,8,20,"assets/images/bonnieFix.jpg"),character("Foxy",130,10,25,"assets/images/foxy.png"),character("Freddy",180,12,30,"assets/images/nightmare.png")].forEach(function(itm){
+      [character("Chica",100,8,5,"assets/images/Chica2.jpg"),character("Bonnie",120,8,10,"assets/images/bonnieFix.jpg"),character("Foxy",150,10,20,"assets/images/foxy.png"),character("Freddy",180,12,25,"assets/images/nightmare.png")].forEach(function(itm){
         players.push(itm);
       });
       console.log(players);
@@ -73,12 +73,33 @@ function setGame(){
         console.log("enemy:",GameThing.enemySelected);
         GameThing.div[index].className="enemySelected";
         $('#fight').append(GameThing.div[index]);
-        $('#defender').html("Enemy Animatrionic");
-        
-
-
+        $('#defender').html("Attack This animatronic!");
+        $('#attack').html('Attack!');
 
          },
+
+      attack: function(){
+        var you = GameThing.enemySelected;
+        var me = GameThing.playerSelected;
+
+        you.healthPoints = you.healthPoints - me.attackPoints;
+        me.healthPoints = me.healthPoints - you.counterAttack;
+        me.attackPoints += 8;
+
+        console.log("your stat",you);
+        console.log("my stat",me);
+
+        if (me.healthPoints <= 0){
+          alert('you lost!');
+          $('#reset').html('Restart');
+        }else if(you.healthPoints <= 0 ){
+          alert('you win! choose other character');
+          $('#fight').empty();
+        }
+
+
+      },
+
 
       //Not sure what setHTML do, but I think It will show on html page
       setHTML: function(){
@@ -119,7 +140,11 @@ $('#startGame').click(function(){
   gameThing.setHTML();
   $('#startGame').hide();
   $('#select1').html("Select Your Character!");
+
+  $('#attack').click(gameThing.attack);
 })
+
+
 
 
 
