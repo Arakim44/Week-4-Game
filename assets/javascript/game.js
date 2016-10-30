@@ -54,7 +54,7 @@ function setGame(){
           GameThing.meDiv = GameThing.div[index];
           GameThing.meDiv.onclick = null;
           console.log("you picked",GameThing.playerSelected);
-          $('#select1').empty ();
+          $('#select1').hide();
           $('#youSelect').show();
           $('#enemyAvail').html("Animatronics Available to attack!!")
         // alert('whenclicked');
@@ -128,16 +128,16 @@ function setGame(){
           $('#defender').empty();
           $('#attack').hide();
           // $('#enemyAvail').empty();
-        }
+            if (document.getElementById("enemy").innerHTML.trim() == ''){
+              alert('You Won! Game over!');
+              $('#reset').show();
+              $('#characterList').empty();
+              $('#enemyAvail').empty();
+
+            }
+          }
         console.log("list of enemies: '", document.getElementById("enemy").innerHTML,"'");
 
-        if (document.getElementById("enemy").innerHTML.trim() == '' && you.healthPoints <=0){
-          alert('You Won! Game over!');
-          $('#reset').show();
-          $('#characterList').empty();
-          $('#enemyAvail').empty();
-
-        }
 
 
 //if document.getElementById("enemy").innerHTML == '  '
