@@ -24,11 +24,14 @@
       </ul>
     </div>
   </header>
+
 <br>
   <div class="container col-md-12" id="main-container">
 
     <div class="container availCharacters col-md-12 row">
+    <button class="btn-primary" id="reset"type="button" style="display:none"  name="button">Restart</button>
     <button class="btn-success" id="startGame" type="button" name="button">Start Game</button>
+
 
       <p id="select1"></p>
       <div class="col-md-7" id="characterList">
@@ -41,20 +44,19 @@
     </div>
 
     <div id = "" class="container col-md-12 row">
-
-      <div id="hey" class="col-md-7">
+      <!-- <div id="hey" class="col-md-7"> -->
         <p id="defender"></p>
-        <button class="btn-danger" id="attack"type="button" name="button"></button>
-        <br><br>
-        <div id="fight"></div>
+        <div id="fight" class="col-md-3"></div>
+          <button class="btn-danger" id="attack"type="button" name="button" style="display:none">Attack!</button>
+        <div id="damage" class="col-md-9"></div>
 
-      </div>
+      <!-- </div> -->
 
     </div>
 
     <div id="end" class="container col-md-12">
-      <div id="restart" class="col-md-7">
-        <button class="btn-primary" id="reset"type="button" name="button"></button>
+      <div id="restart" class="<col-md-3></col-md-3>">
+
       </div>
 
     </div>

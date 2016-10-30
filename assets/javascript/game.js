@@ -35,6 +35,8 @@ function setGame(){
       var GameThing = {
         playerSelected: null, //what does this do by setting it null again?
         enemySelected: null,
+        meDiv: null,
+        youDiv: null,
         players: players, //array above in line 24 i think. but just names..
         div: [],
         //method that happens when clicked.
@@ -49,6 +51,8 @@ function setGame(){
           console.log("this.players[index]",playerClicked);
 
           GameThing.playerSelected = playerClicked;
+          GameThing.meDiv = GameThing.div[index];
+          GameThing.meDiv.onclick = null;
           console.log("you picked",GameThing.playerSelected);
           $('#select1').hide();
           $('#youSelect').html("Your Character");
@@ -72,9 +76,10 @@ function setGame(){
         GameThing.enemySelected = GameThing.players[index];
         console.log("enemy:",GameThing.enemySelected);
         GameThing.div[index].className="enemySelected";
+        GameThing.youDiv = GameThing.div[index];
         $('#fight').append(GameThing.div[index]);
         $('#defender').html("Attack This animatronic!");
-        $('#attack').html('Attack!');
+        $('#attack').show();
 
          },
 
@@ -82,19 +87,44 @@ function setGame(){
         var you = GameThing.enemySelected;
         var me = GameThing.playerSelected;
 
+
+
+        //
+        // GameThing.meDiv;
+        // GameThing.youDiv;
+
         you.healthPoints = you.healthPoints - me.attackPoints;
         me.healthPoints = me.healthPoints - you.counterAttack;
         me.attackPoints += 8;
+        GameThing.meDiv.innerHTML =  '<p data-index="" >' + me.name+'<br>hp:'+me.healthPoints+'</p>';
+        GameThing.meDiv.innerHTML += '<img data-index="" src="'+me.img+'" alt="'+me.name+'"/>';
+
+        GameThing.youDiv.innerHTML =  '<p data-index="" >' + you.name+'<br>hp:'+you.healthPoints+'</p>';
+        GameThing.youDiv.innerHTML += '<img data-index="" src="'+you.img+'" alt="'+you.name+'"/>';
+
+        $('#damage').html('<p>you attacked '+you.name+' for '+me.attackPoints +' damage.<br>'+you.name +' attacked you back for '+you.counterAttack+' damage.</p>');
+
 
         console.log("your stat",you);
         console.log("my stat",me);
 
         if (me.healthPoints <= 0){
           alert('you lost!');
-          $('#reset').html('Restart');
+          $('#reset').show();
+          $('#damage').empty();
+          $('#defender').empty();
+          $('#attack').hide();
+          $('#fight').empty();
+          $('#characterList').empty();
+          $('#enemyAvail').empty();
+          $('#enemy').empty();
+
         }else if(you.healthPoints <= 0 ){
           alert('you win! choose other character');
           $('#fight').empty();
+          $('#damage').empty();
+          $('#defender').empty();
+          $('#attack').hide();
         }
 
 
