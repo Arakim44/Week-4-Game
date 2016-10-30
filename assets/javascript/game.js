@@ -73,6 +73,9 @@ function setGame(){
         console.log("enemy:",GameThing.enemySelected);
         GameThing.div[index].className="enemySelected";
         $('#fight').append(GameThing.div[index]);
+        $('#defender').html("Enemy Animatrionic");
+        
+
 
 
          },
