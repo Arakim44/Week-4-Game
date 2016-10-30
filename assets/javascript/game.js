@@ -177,7 +177,7 @@ $('#startGame').click(function(){
   document.getElementById('attack').onclick = gameThing.attack;
 
 })
-
+//reset function
 $('#reset').click(function(){
   var gameThing = setGame();
   gameThing.setHTML();
