@@ -71,6 +71,7 @@ function setGame(){
         var index = e.target.dataset.index;
         GameThing.enemySelected = GameThing.players[index];
         console.log("enemy:",GameThing.enemySelected);
+        GameThing.div[index].className="enemySelected";
         $('#fight').append(GameThing.div[index]);
 
 

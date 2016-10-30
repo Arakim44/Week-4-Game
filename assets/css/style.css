@@ -40,7 +40,7 @@ ul{
   float: right;
 }
 
-.characters {
+.characters, .yours, .enemyAvail, .enemySelected{
     height: 180px;
     width: 130px;
     margin-left: 20px;
@@ -49,45 +49,28 @@ ul{
     overflow: hidden;
     cursor: pointer;
     color: white;
-    border: 3px solid white;
+    /*border: 3px solid white; for .characters*/
 }
-.yours {
+
+.characters{
+  border: 3px solid white;
+}
+.yours{
   border: 3px solid green;
-  height: 180px;
-  width: 130px;
-  margin-left: 20px;
-  text-align: center;
-  /*padding: 10px;*/
-  display: inline-block;
-  overflow: hidden;
-  cursor: pointer;
-  color: green;
-}
-.yours img{
-  width: 130px;
 }
 
 .enemyAvail{
+ border: 3px solid yellow;
+}
+.enemySelected{
   border: 3px solid red;
-  height: 180px;
-  width: 130px;
-  margin-left: 20px;
-  text-align: center;
-  /*padding: 10px;*/
-  display: inline-block;
-  overflow: hidden;
-  cursor: pointer;
-  color: red;
 }
-
-.enemyAvail img{
+.yours img, .enemyAvail img, .characters img, .enemySelected img{
   width: 130px;
 }
 
 
-.characters img{
-  width:130px;
-}
+
 
 .characters:hover{
   border-color: #00d8ff;
