@@ -129,10 +129,20 @@ function setGame(){
           $('#attack').hide();
           // $('#enemyAvail').empty();
         }
+        console.log("list of enemies: '", document.getElementById("enemy").innerHTML,"'");
+
+        if (document.getElementById("enemy").innerHTML.trim() == '' && you.healthPoints <=0){
+          alert('You Won! Game over!');
+          $('#reset').show();
+          $('#characterList').empty();
+          $('#enemyAvail').empty();
+
+        }
 
 
-      },
+//if document.getElementById("enemy").innerHTML == '  '
 
+  },
 
       //Not sure what setHTML do, but I think It will show on html page
       setHTML: function(){
