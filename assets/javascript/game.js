@@ -174,6 +174,12 @@ $('#startGame').click(function(){
   $('#attack').click(gameThing.attack);
 })
 
+$('#reset').click(function(){
+  var gameThing = setGame();
+  gameThing.setHTML();
+  $('#reset').hide();
+})
+
 
 
 
