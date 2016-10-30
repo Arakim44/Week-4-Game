@@ -53,85 +53,48 @@ function setGame(){
           $('#select1').hide();
           $('#youSelect').html("Your Character");
           $('#enemyAvail').html("Animatronics Available to attack!!")
-
-          if(index == 0){
-            GameThing.div[0].className="yours";
-            GameThing.div[1].className="enemyAvail";
-            GameThing.div[2].className="enemyAvail";
-            GameThing.div[3].className="enemyAvail";
-            $('#enemy').append(GameThing.div[1]);
-            $('#enemy').append(GameThing.div[2]);
-            $('#enemy').append(GameThing.div[3]);
-
-          }
-          if(index == 1){
-            GameThing.div[1].className="yours";
-            GameThing.div[0].className="enemyAvail";
-            GameThing.div[2].className="enemyAvail";
-            GameThing.div[3].className="enemyAvail";
-            $('#enemy').append(GameThing.div[0]);
-            $('#enemy').append(GameThing.div[2]);
-            $('#enemy').append(GameThing.div[3]);
-
-          }
-          if(index == 2){
-            GameThing.div[2].className="yours";
-            GameThing.div[0].className="enemyAvail";
-            GameThing.div[1].className="enemyAvail";
-            GameThing.div[3].className="enemyAvail";
-            $('#enemy').append(GameThing.div[1]);
-            $('#enemy').append(GameThing.div[3]);
-            $('#enemy').append(GameThing.div[0]);
-          }
-          if(index == 3){
-            GameThing.div[3].className="yours";
-            GameThing.div[0].className="enemyAvail";
-            GameThing.div[1].className="enemyAvail";
-            GameThing.div[2].className="enemyAvail";
-            $('#enemy').append(GameThing.div[1]);
-            $('#enemy').append(GameThing.div[2]);
-            $('#enemy').append(GameThing.div[0]);
-          }
-
+        // alert('whenclicked');
+          for(var i = 0; i < GameThing.div.length; i++){
+            if(index == i){
+              GameThing.div[i].className="yours";
+            }else{
+              GameThing.div[i].className="enemyAvail";
+              $('#enemy').append(GameThing.div[i]);
+              GameThing.div[i].onclick = GameThing.selectEnemy;//this is function I will make soon.
+            }
+          };
 
         },
 
+      selectEnemy: function(e){
+        // alert("enemy select");
+        var index = e.target.dataset.index;
+        GameThing.enemySelected = GameThing.players[index];
+        console.log("enemy:",GameThing.enemySelected);
+        $('#fight').append(GameThing.div[index]);
 
-       //not done writing i don't think. It might come in later.
 
-       //Must been clicked first right?
-      //  selectPlayer: function(index){
-      //     GameThing.playerSelected = Gamething.players[index];
-      //     //hopfully playerSelected has all the properties like hp and stuff.
-      //
-       //
-      //   },
-
-      //This select your enemy shich is chosen second.
-
-      selectEnemy: function(index){
-           GameThing.enemySelected = GameThing.player[index];
-           console.log(GameThing.enemySelected);
          },
 
       //Not sure what setHTML do, but I think It will show on html page
       setHTML: function(){
         // rootElement.innerHTML = "";//why do you leave it blank?
-        var self=this;
+        // var self=this;
         //second parameter of the forEach function calls index.
         GameThing.players.forEach(function(player,index){
           var p =document.createElement("div");
           p.id = 'character'+(index+1); //this is id of div for character#
           p.className = "characters";
           p.setAttribute("data-index",index);
-          p.innerHTML =  '<strong data-index="'+index+ '" >' + player.name+'</strong>';
+          p.innerHTML =  '<p data-index="'+index+ '" >' + player.name+'<br>hp:'+player.healthPoints+'</p>';
           p.innerHTML += '<img data-index="'+index+'" src="'+player.img+'" alt="'+player.name+'"/>';
 
           rootElement.appendChild(p);//all of the p are adding to the div.
           //well.. the reason why he used addEventListener is that.. maybe click method only works on ids or class?
           //whenClicked:
           GameThing.div.push(p);
-          p.addEventListener("click",GameThing.whenClicked);
+          // p.addEventListener("click",GameThing.whenClicked);
+          p.onclick = GameThing.whenClicked;
 
           console.log("div",GameThing.div);
 

@@ -41,7 +41,7 @@ ul{
 }
 
 .characters {
-    height: 130px;
+    height: 180px;
     width: 130px;
     margin-left: 20px;
     text-align: center;
@@ -53,7 +53,7 @@ ul{
 }
 .yours {
   border: 3px solid green;
-  height: 130px;
+  height: 180px;
   width: 130px;
   margin-left: 20px;
   text-align: center;
@@ -69,7 +69,7 @@ ul{
 
 .enemyAvail{
   border: 3px solid red;
-  height: 130px;
+  height: 180px;
   width: 130px;
   margin-left: 20px;
   text-align: center;
