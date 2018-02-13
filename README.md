@@ -4,6 +4,8 @@ Simple javascript game with click event function.
 
 [Play Online](http://simple-game-ara-kim.herokuapp.com/ "fnaf Game online")
 
+![fnaf](https://user-images.githubusercontent.com/20548632/36170781-fcdc5f70-10c5-11e8-9244-ce4e170431c1.gif)
+
 
  ### Tools Used
 * JavaScript
